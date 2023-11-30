@@ -14,11 +14,11 @@ function Tabs() {
     }
 
     const tabsElements = tabsData.map((item) => {
-        return <div onClick={() => changeActive(item.title)} class={activeTab === item.title ? "tabs__item tabs__item_active" : "tabs__item"}>{item.title}</div>
+        return <div onClick={() => changeActive(item.title)} className={activeTab === item.title ? "tabs__item tabs__item_active" : "tabs__item"}>{item.title}</div>
     })
 
   return (
-    <div class="tabs">
+    <div className="tabs">
         {tabsElements}
     </div>
   )

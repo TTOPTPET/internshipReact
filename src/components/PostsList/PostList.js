@@ -20,9 +20,9 @@ function PostList() {
         
             <div className="postList__titles">
 
-                <div class="postList__title">Пост</div>
-                <div class="postList__title">Опубликовано</div>
-                <div class="postList__title">Ссылка</div>
+                <div className="postList__title">Пост</div>
+                <div className="postList__title">Опубликовано</div>
+                <div className="postList__title">Ссылка</div>
 
             </div>
 

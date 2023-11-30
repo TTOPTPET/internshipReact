@@ -3,7 +3,7 @@ import "./container.sass";
 
 function Container(props) {
   return (
-    <div className='container'>
+    <div className={props.createPost ? 'container container_create-post' : 'container'}>
         {props.children}
     </div>
   )

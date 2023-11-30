@@ -2,14 +2,13 @@ import React, { useCallback, useState } from 'react'
 import './postItem.sass'
 import linkIcon from "../../assets/icons/link.svg"
 import moreIcon from "../../assets/icons/more.svg"
+import noPhoto from '../../assets/images/noPhoto.png'
 
 import useStore from '../../store'
 
 function PostItem({post}) {
 
-    const {id, image, posted, title, subtitle, descr_title, descr_subtitle} = post
-
-    console.log(posted);
+    const {id, image, posted, title, link, author, date} = post
 
     const [dropdownActive, setDropdownActive] = useState(false)
 
@@ -23,42 +22,43 @@ function PostItem({post}) {
         setDropdownActive(false)
     }
 
+    console.log(image);
   return (
     <div className='postItem'>
-        <div class="postItem__post">
-            <div class="postItem__post__image-wrapper">
-                <img src={image} alt="onion" class="postItem__post__image"></img>
+        <div className="postItem__post">
+            <div className="postItem__post__image-wrapper">
+                <img src={image ? image : noPhoto} alt="onion" className="postItem__post__image"></img>
             </div>
-            <div class="postItem__description">
-                <div class="postItem__description__title">{title}</div>
-                <div class="postItem__description__subtitle">{subtitle}</div>
-            </div>
-        </div>
-
-        <div class="postItem__published">
-            <div class="postItem__published__wrapper">
-                <div class={useStore.getState().loading ? "postItem__published__status-icon postItem__published__status-icon_loading" : posted ? "postItem__published__status-icon" : "postItem__published__status-icon postItem__published__status-icon_notpublished"}>
-                    <span class="tooltip">{useStore.getState().loading ? "Загружается" : posted ? "Опубликовано" : "Неопубликовано"}</span>
-                </div>
-                <div class="postItem__description">
-                    <div class="postItem__description__title">{descr_title}</div>
-                    <div class="postItem__description__subtitle">{descr_subtitle}</div>
-                </div>
+            <div className="postItem__description">
+                <div className="postItem__description__title">{title}</div>
+                <div className="postItem__description__subtitle">{link}</div>
             </div>
         </div>
 
-        <div class="postItem__link">
-            <div class="postItem__link__wrapper">
+        <div className="postItem__published">
+            <div className="postItem__published__wrapper">
+                <div className={useStore.getState().loading ? "postItem__published__status-icon postItem__published__status-icon_loading" : posted ? "postItem__published__status-icon" : "postItem__published__status-icon postItem__published__status-icon_notpublished"}>
+                    <span className="tooltip">{useStore.getState().loading ? "Загружается" : posted ? "Опубликовано" : "Неопубликовано"}</span>
+                </div>
+                <div className="postItem__description">
+                    <div className="postItem__description__title">{author}</div>
+                    <div className="postItem__description__subtitle">{date}</div>
+                </div>
+            </div>
+        </div>
+
+        <div className="postItem__link">
+            <div className="postItem__link__wrapper">
                 <div className="postItem__link__icon">
                     <img src={linkIcon}></img>
                 </div>
                 <div className={dropdownActive ? "postItem__link__icon postItem__link__icon_active" : "postItem__link__icon"} onClick={() => setDropdownActive(!dropdownActive)}>
-                    <img src={moreIcon} class={dropdownActive ? "postItem__link__icon_more postItem__link__icon_more_active" : "postItem__link__icon_more"}></img>
+                    <img src={moreIcon} className={dropdownActive ? "postItem__link__icon_more postItem__link__icon_more_active" : "postItem__link__icon_more"}></img>
                 </div>
             </div>
-            <div class={dropdownActive ? "dropdown dropdown_active" : "dropdown"}>
-                <button disabled={posted ? true : false} class="dropdown__item" onClick={() => onPublished(post)}>Опубликовать</button>
-                <button class="dropdown__item" onClick={() => onDelete(id)}>Удалить</button>
+            <div className={dropdownActive ? "dropdown dropdown_active" : "dropdown"}>
+                <button disabled={posted ? true : false} className="dropdown__item" onClick={() => onPublished(post)}>Опубликовать</button>
+                <button className="dropdown__item" onClick={() => onDelete(id)}>Удалить</button>
             </div>
         </div>
     </div>

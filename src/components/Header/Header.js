@@ -10,18 +10,18 @@ function Header() {
     const navigate = useNavigate();
 
     return (
-    <div class="header">
+    <div className="header">
 
         <Container>
-            <div class="header__wrapper">
+            <div className="header__wrapper">
 
-            <div class="header__text">
-                <div class="header__title">Социальные сети</div>
-                <div class="header__subtitle">Делитесь постами из соцсетей</div>
+            <div className="header__text">
+                <div className="header__title">Социальные сети</div>
+                <div className="header__subtitle">Делитесь постами из соцсетей</div>
             </div>
 
-            <a onClick={() => navigate("/addpost")} class="header__button">
-                <img class="header__button__icon" alt="button icon" src={addCircle}></img>
+            <a onClick={() => navigate("/addpost")} className="header__button">
+                <img className="header__button__icon" alt="button icon" src={addCircle}></img>
                 Добавить
             </a>
 
