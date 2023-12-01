@@ -5,7 +5,7 @@ import useStore from '../../store'
 
 function Colorpicker(props) {
 
-    const onColorChange = useStore(({onColorChange}) => onColorChange)
+    const onDataChange = useStore(({onDataChange}) => onDataChange)
   
     const {color} = props
   
@@ -20,7 +20,7 @@ function Colorpicker(props) {
         </div>
 
         <div className="colorpicker__wrapper">
-            <input type="color" onChange={(e) => onColorChange(e.target.value)} className="colorpicker__input"></input>
+            <input type="color" onChange={(e) => onDataChange({color: (e.target.value).toUpperCase()})} className="colorpicker__input"></input>
             {/* {!color && <img src={withoutColor} alt="png" className="colorpicker__img"></img>} */}
             <span className="colorpicker__tooltip">{color ? color : "Выберите цвет"}</span>
         </div>

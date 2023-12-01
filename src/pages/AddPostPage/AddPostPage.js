@@ -18,14 +18,11 @@ function AddPostPage() {
 
   const newPost = useStore(({newPost}) => newPost)
 
-  console.log(newPost);
-
-
   return (
     <>
       <div className="create-post__background"></div>
 
-      <PostArea/>
+      <PostArea newPost={newPost}/>
 
       <Container createPost={true}>
 
@@ -35,7 +32,7 @@ function AddPostPage() {
 
           <AddPostItem>
 
-            <Description/>
+            <Description newPost={newPost}/>
 
           </AddPostItem>
 

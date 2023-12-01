@@ -4,13 +4,13 @@ import useStore from '../../store'
 
 function Switch() {
 
-    const onThemeChange = useStore(({onThemeChange}) => onThemeChange)
+    const onDataChange = useStore(({onDataChange}) => onDataChange)
 
     const [switchOn, setSwitchOn] = useState(false)
 
     const onSwitchChange = () => {
         setSwitchOn(!switchOn);
-        onThemeChange(switchOn ? "dark" : "light")
+        onDataChange({theme: switchOn ? "dark" : "light"})
     }
     
 

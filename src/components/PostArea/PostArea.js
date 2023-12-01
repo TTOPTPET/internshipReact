@@ -2,21 +2,27 @@ import React from 'react'
 import './postArea.sass'
 import batteryIcon from '../../assets/icons/battery.svg'
 import wifiIcon from '../../assets/icons/wifi.svg'
+import noImage from '../../assets/icons/noImage.svg'
+import onion from '../../assets/images/onion.png'
 
-function PostArea() {
+function PostArea(props) {
+
+    const {theme, image, title, color, description} = props.newPost
+
   return (
     <div className="post-area">
-        <div className="post-area__post">
+        <div className="post-area__post" style={{backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, ${color} 22.4%, ${color} 100%), url(${onion})`, backgroundSize: "100% 365px, contain"}}>
+        {!color && <img src={noImage} alt="camera" className='post-area__post__no-image'/>}
             <div className="post-area__post__header">
-                <div className="post-area__post__header__time">22:47</div>
-                <div className="post-area__post__header__icons">
-                    <img src={wifiIcon} alt="wifi" className="post-area__post__header__icons_wifi"></img>
-                    <img src={batteryIcon} alt="battery" className="post-area__post__header__icons_battery"></img>
+                <div className={theme === "dark" ? "post-area__post__header__time post-area__post__header__time_dark" : "post-area__post__header__time"}>22:47</div>
+                <div className={theme === 'dark' ? "post-area__post__header__icons post-area__post__header__icons_dark" : "post-area__post__header__icons"}>
+                    <img src={wifiIcon} alt="wifi" className="post-area__post__header__icons_wifi"/>
+                    <img src={batteryIcon} alt="battery" className="post-area__post__header__icons_battery"/>
                 </div>
             </div>
-            <div className="post-area__post__text">
-                <div className="post-area__post__text__title">Onion</div>
-                <div className="post-area__post__text__descr">The useful properties of onions are versatile. It is a powerful antimicrobial that effectively fights internal and external infection. Onions have antiviral, antibacterial, anthelmintic, antifungal, disinfectant properties. In case of colds, it is not only consumed internally, but also left indoors in cut form to disinfect the air. </div>
+            <div className={theme === "dark" ? "post-area__post__text post-area__post__text_dark" : "post-area__post__text"}>
+                <div className="post-area__post__text__title">{title ? title : "Название"}</div>
+                <div className="post-area__post__text__descr">{description ? description : "Описание"}</div>
             </div>
         </div>
     </div>

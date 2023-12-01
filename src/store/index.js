@@ -2,56 +2,48 @@ import create from 'zustand'
 import uniqid from 'uniqid';
 
 let date = new Date();
-let day = date.getDate();
-let month = date.getMonth() + 1;
+let day = (date.getDate()).toString().padStart(2, 0);
+let month = (date.getMonth() + 1).toString().padStart(2, 0);
 let year = date.getFullYear();
 
 let formattedDate = day + "/" + month + "/" + year;
+
+const newPostDefault = {
+  id: "",
+  title: "Название",
+  author: "altenar",
+  description: "Описание",
+  image: "https://kartinki.pibig.info/uploads/posts/2023-04/1682010561_kartinki-pibig-info-p-luk-iz-chipollino-kartinka-arti-vkontakte-51.jpg",
+  color: "",
+  theme: "dark",
+  linkTitle: "Ссылка",
+  link: "",
+  posted: false,
+  date: formattedDate,
+  discriptor: ""
+}
 
 const useStore = create((set, get) => ({
  posts: [],
  loading: false,
  error: null,
- newPost: {
-  id: "",
-  title: "",
-  author: "",
-  description: "",
-  image: "",
-  color: "",
-  theme: "dark",
-  linkTitle: "",
-  link: "",
-  posted: false,
-  date: formattedDate
+ inputError: false,
+ newPost: newPostDefault,
+
+ clearNewPostData() {
+  set({ newPost: newPostDefault })
  },
 
- onTitleChange(title) {
-  const newPost = {...get().newPost, title}
+ onDataChange(data) {
+  const newPost = {...get().newPost, ...data}
   set({ newPost })
+  console.log(newPost);
+  if (newPost.link.length > 50 || newPost.linkTitle.length > 30 || newPost.title.length > 50 || newPost.discriptor.length > 30) {
+    set({inputError: true})
+  } else {
+    set({inputError: false})
+  }
  },
-
- onAuthorChange(author) {
-  const newPost = {...get().newPost, author}
-  set({ newPost })
- },
-
- onColorChange(color) {
-  const newPost = {...get().newPost, color}
-  set({ newPost })
- },
-
- onLinkChange(link) {
-  const newPost = {...get().newPost, link}
-  set({ newPost })
- },
-
- onThemeChange(theme) {
-  const newPost = {...get().newPost, theme}
-  set({ newPost })
- },
- 
- 
  
  async fetchPosts() {
    set({ loading: true })
@@ -73,13 +65,16 @@ const useStore = create((set, get) => ({
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
-      body: JSON.stringify({...post, id: uniqid()})})
+      body: JSON.stringify({...post, id: uniqid(), image: "https://kartinki.pibig.info/uploads/posts/2023-04/1682010561_kartinki-pibig-info-p-luk-iz-chipollino-kartinka-arti-vkontakte-51.jpg"})})
     if (!response.ok) {
-      throw new Error(`Could not delete`)
+      throw new Error(`Could not add`)
     } 
     this.fetchPosts();
+       
   } catch (e) {
     console.log(e);
+  } finally {
+    this.clearNewPostData(); 
   }
  },
 

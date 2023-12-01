@@ -8,7 +8,7 @@ import useStore from '../../store'
 
 function PostItem({post}) {
 
-    const {id, image, posted, title, link, author, date} = post
+    const {id, image, posted, title, link, linkTitle, author, date} = post
 
     const [dropdownActive, setDropdownActive] = useState(false)
 
@@ -22,7 +22,6 @@ function PostItem({post}) {
         setDropdownActive(false)
     }
 
-    console.log(image);
   return (
     <div className='postItem'>
         <div className="postItem__post">
@@ -31,7 +30,7 @@ function PostItem({post}) {
             </div>
             <div className="postItem__description">
                 <div className="postItem__description__title">{title}</div>
-                <div className="postItem__description__subtitle">{link}</div>
+                <a href={link ? link : "#"} className="postItem__description__subtitle">{linkTitle}</a>
             </div>
         </div>
 

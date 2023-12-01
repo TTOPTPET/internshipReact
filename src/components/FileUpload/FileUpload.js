@@ -6,7 +6,7 @@ function FileUpload() {
 
 
     const [file, setFile] = useState()
-    console.log(file);
+    // console.log(file);
   return (
     
     <div className="file-upload">
