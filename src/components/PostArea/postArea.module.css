@@ -1,0 +1,121 @@
+@value variables: "../../style/variables.module.css";
+@value baseLetterSpacing from variables;
+
+.postArea {
+    width: calc(59% - 10px);
+    height: calc(100vh - 32px);
+    background-color: #212121;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.post {
+    width: 351px;
+    height: 633px;
+    border-radius: 45px;
+    border: 6px solid #E4E4E4;
+    position: relative;
+    background-color: #fff;
+    background-position: bottom, top;
+    background-repeat: no-repeat, no-repeat;
+}
+        
+.noImage {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+}
+
+.image {
+    position: absolute;
+    width: 339px;
+    height: 339px;
+    border-top-left-radius: 38px;
+    border-top-right-radius: 38px;
+}
+            
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 24px 0   ;
+}
+            
+.time {
+    color: #fff;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 11px;
+    transition: 0.3s all;
+}
+                
+.dark {
+    color: #000;
+}
+                    
+.icons {
+    transition: 0.3s all;
+}
+
+.darkIcons {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(72%) saturate(0%) hue-rotate(334deg) brightness(100%) contrast(101%);
+}
+                
+.wifi {
+    margin-right: 3px
+}
+                    
+.text {
+    width: 340px;
+    height: 365px;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 38px;
+    border-bottom-right-radius: 38px;
+    padding: 115px 23px 0 23px;
+    color: #fff;
+    z-index: 10;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: baseLetterSpacing;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: 0.3s all;
+}
+
+.descr {
+    max-width: 300px;
+    padding-right: 5px;
+    max-height: 180px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: baseLetterSpacing;
+    white-space: pre-wrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    transition: 0.3s all;
+}
+
+.descr::-webkit-scrollbar {
+    width: 4px;
+}
+.descr::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #BDBDBD;
+}
+.descr::-webkit-scrollbar-track {
+    display: none;
+}

@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const postcssModulesValues = require('postcss-modules-values');
 
 module.exports = {
   output: {
@@ -25,11 +26,32 @@ module.exports = {
         },
       },
       {
-        test: /\.(sa|sc|c)ss$/, 
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.css$/, 
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+              loader: 'css-loader',
+              options: {
+                  modules: {
+                    auto: true, localIdentName: "[name]_[local]_[hash:base64:5]",
+                  },
+              }
+          },
+          {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  ident: 'postcss',
+                  config: false,
+                }
+              }
+          }
+        ],
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+        test: /\.(png|jpg|svg)$/, 
         loader: "url-loader",
         options: { limit: false },
       },

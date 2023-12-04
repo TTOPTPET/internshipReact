@@ -1,0 +1,23 @@
+@value variables: "../../style/variables.module.css";
+@value darkGrey, baseLetterSpacing from variables;
+
+.postList {
+    display: grid;
+    grid-template-columns: 100%;
+}
+    
+.titles {
+    display: grid;
+    grid-template-columns: 65% 28% 7%;
+}
+        
+.title {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: baseLetterSpacing;
+    color: darkGrey;
+    margin: 25px 0 19px 0;
+}
+        

@@ -1,0 +1,17 @@
+@value variables: "../../style/variables.module.css";
+@value customBlue from variables;
+
+.subheader {
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 24px 0;
+    gap: 4px;
+}
+
+.link {
+    text-decoration: none;
+    color: customBlue;
+}
+        

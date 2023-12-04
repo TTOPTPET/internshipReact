@@ -1,5 +1,5 @@
 import React from 'react'
-import './addPostPage.sass'
+import style from './addPostPage.module.css'
 import Container from '../../components/Container/Container'
 import BackButton from '../../components/BackButton/BackButton'
 import Subheader from '../../components/Subheader/Subheader'
@@ -20,7 +20,7 @@ function AddPostPage() {
 
   return (
     <>
-      <div className="create-post__background"></div>
+      <div className={style.background}></div>
 
       <PostArea newPost={newPost}/>
 

@@ -1,0 +1,210 @@
+@value variables: "../../style/variables.module.css";
+@value bigLetterSpacing, baseLetterSpacing from variables;
+
+.postItem {
+    display: grid;
+    grid-template-columns: 65% 28% 7%;
+    margin-bottom: 12px;
+}   
+    
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+        
+.title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: baseLetterSpacing;
+    max-width: 650px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+            
+.subtitle {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.38);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: bigLetterSpacing;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+        
+.imageWrapper {
+    width: 74px;
+    height: 74px;
+    border-radius: 5px;
+}
+
+.image {
+    width: inherit;
+    height: inherit;
+    border-radius: 5px;
+}
+            
+.published {
+    display: flex;
+    align-items: center;
+}
+        
+.publishedWrapper {
+    display: flex;
+    align-items: start;
+    gap: 8px;
+}
+            
+.statusIcon {
+    margin-top: 5px;
+    width: 9px;
+    height: 9px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    position: relative;
+}
+
+.tooltip {
+    margin-top: 6px;
+    visibility: hidden;
+    color: #fff;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -42px;
+    background-color: rgba(97, 97, 97, 0.9);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+}
+
+.statusIcon:hover .tooltip {
+    visibility: visible;
+}
+
+.loading {
+    background-color: #FF9800;
+}
+
+.loading .tooltip {
+    margin-left: -38px;
+}
+
+.notpublished {
+    background-color: #F44336;
+}
+
+.notpublished .tooltip {
+    margin-left: -46px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.linkWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+    
+.icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-25%);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    filter: invert(43%) sepia(2%) saturate(39%) hue-rotate(357deg) brightness(103%) contrast(83%);
+}
+
+.icon:hover {
+    filter: invert(44%) sepia(85%) saturate(1559%) hue-rotate(184deg) brightness(99%) contrast(92%);
+    background-color: rgba(33, 150, 243, 0.04);
+}
+
+.icon:disabled {
+    cursor: default;
+    filter: invert(94%) sepia(100%) saturate(0%) hue-rotate(118deg) brightness(87%) contrast(108%);
+}
+
+.iconActive {
+    filter: invert(44%) sepia(85%) saturate(1559%) hue-rotate(184deg) brightness(99%) contrast(92%);
+    background-color: rgba(33, 150, 243, 0.24);
+}
+
+.iconActive:hover {
+    background-color: rgba(33, 150, 243, 0.24);
+}
+
+.more {
+    transform: translateX(25%);   
+}
+
+.more:hover {
+    filter: invert(44%) sepia(85%) saturate(1559%) hue-rotate(184deg) brightness(99%) contrast(92%);
+}
+    
+.more:disabled {
+    filter: invert(94%) sepia(100%) saturate(0%) hue-rotate(118deg) brightness(87%) contrast(108%);
+}
+
+.moreActive {
+    filter: invert(44%) sepia(85%) saturate(1559%) hue-rotate(184deg) brightness(99%) contrast(92%);
+}
+
+
+                
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: -25px;
+    background-color: #fff;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px 0px rgba(0, 0, 0, 0.20);
+    padding: 8px 0px;
+    width: 134px;
+    padding: 8px 0px;
+    border-radius: 5px;
+    z-index: 10;
+}
+    
+.dropdownButton {
+    width: 100%;
+    padding: 10px 16px 9px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: baseLetterSpacing;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    text-align: left;
+}
+
+.dropdownButton:hover {
+    background-color: #F5F5F5;
+}
+
+.dropdownActive {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

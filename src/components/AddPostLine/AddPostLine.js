@@ -1,9 +1,9 @@
 import React from 'react'
-import './addPostLine.sass'
+import addPostLine from './addPostLine.module.css'
 
 function AddPostLine() {
   return (
-    <div className="add-post__line"></div>
+    <div className={addPostLine.line}></div>
   )
 }
 

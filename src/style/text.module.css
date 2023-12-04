@@ -1,0 +1,30 @@
+@value variables: "./variables.module.css";
+@value darkText, baseLetterSpacing from variables;
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+    
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: baseLetterSpacing;
+}
+        
+.subheader {
+    font-size: 36px;
+    line-height: 50px;
+}
+            
+.subtitle {
+    color: darkText;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: baseLetterSpacing;
+    max-width: 421px;
+}
+        

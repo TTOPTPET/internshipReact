@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import './switch.sass'
+import style from './switch.module.css'
 import useStore from '../../store'
+import classNames from 'classnames'
+import text from '../../style/text.module.css'
 
 function Switch() {
 
@@ -15,26 +17,26 @@ function Switch() {
     
 
   return (
-    <div className="switch">
+    <>
 
-        <div className="text">
+        <div className={text.text}>
 
-            <div className="text__title">Проверьте читабельность</div>
-            <div className="text__subtitle">Выберите цвет интерфейса, который будет контрастнее смотреться на выбранном ранее фоне</div>
+            <div className={text.title}>Проверьте читабельность</div>
+            <div className={text.subtitle}>Выберите цвет интерфейса, который будет контрастнее смотреться на выбранном ранее фоне</div>
         
         </div>
 
-        <div className="switch__wrapper">
+        <div className={style.wrapper}>
     
-            <div className={`switch__text ${!switchOn && "switch__text_active"}`}>Темный</div>
+            <div className={classNames(style.text, !switchOn && style.textActive)}>Темный</div>
 
-            <div onClick={() => onSwitchChange()} className={switchOn ? "switch__button switch__button_on" : "switch__button"}></div>
+            <div onClick={() => onSwitchChange()} className={classNames(style.button, switchOn && style.buttonOn)}></div>
 
-            <div className={`switch__text ${switchOn && "switch__text_active"}`}>Светлый</div>
+            <div className={classNames(style.text, switchOn && style.textActive)}>Светлый</div>
 
         </div>
 
-    </div>
+    </>
   )
 }
 

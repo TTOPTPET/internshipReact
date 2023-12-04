@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import './postList.sass'
+import style from './postList.module.css'
 
 import useStore from '../../store'
 import PostItem from '../PostItem/PostItem'
@@ -16,19 +16,19 @@ function PostList() {
     })
 
     return (
-        <div className='postList'>
+        <div className={style.postList}>
         
-            <div className="postList__titles">
+            <div className={style.titles}>
 
-                <div className="postList__title">Пост</div>
-                <div className="postList__title">Опубликовано</div>
-                <div className="postList__title">Ссылка</div>
+                <div className={style.title}>Пост</div>
+                <div className={style.title}>Опубликовано</div>
+                <div className={style.title}>Ссылка</div>
 
             </div>
 
-            <div className="postList_posts">
+            <>
                 {elements}
-            </div>
+            </>
 
         </div>
     )

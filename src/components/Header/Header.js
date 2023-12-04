@@ -1,5 +1,5 @@
 import React from 'react'
-import './header.sass';
+import header from './header.module.css';
 import Container from '../Container/Container';
 import { useNavigate } from 'react-router-dom';
 import addCircle from "../../assets/icons/add-circle-outline.svg"
@@ -10,20 +10,20 @@ function Header() {
     const navigate = useNavigate();
 
     return (
-    <div className="header">
+    <div className={header.header}>
 
         <Container>
-            <div className="header__wrapper">
+            <div className={header.wrapper}>
 
-            <div className="header__text">
-                <div className="header__title">Социальные сети</div>
-                <div className="header__subtitle">Делитесь постами из соцсетей</div>
+            <div className={header.text}>
+                <div className={header.title}>Социальные сети</div>
+                <div className={header.subtitle}>Делитесь постами из соцсетей</div>
             </div>
 
-            <a onClick={() => navigate("/addpost")} className="header__button">
-                <img className="header__button__icon" alt="button icon" src={addCircle}></img>
+            <button onClick={() => navigate("/addpost")} className={header.button}>
+                <img alt="button icon" src={addCircle}></img>
                 Добавить
-            </a>
+            </button>
 
             </div>
 

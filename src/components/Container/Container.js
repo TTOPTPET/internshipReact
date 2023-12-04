@@ -1,9 +1,10 @@
 import React from 'react'
-import "./container.sass";
+import classNames from 'classnames'; 
+import container from "./container.module.css";
 
 function Container(props) {
   return (
-    <div className={props.createPost ? 'container container_create-post' : 'container'}>
+    <div className={classNames(container.container, props.createPost && container.createPost)}>
         {props.children}
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import './backButton.sass'
+import back from './backButton.module.css'
 import { useNavigate } from 'react-router-dom';
 import ArrowLeft from '../../assets/icons/arrow-left.svg'
 import useStore from '../../store';
@@ -13,10 +13,10 @@ function BackButton() {
     }
 
     return (
-        <div className="back-button" onClick={() => onButtonClicked()}>
-            <a className="back-button__link">
-                <img src={ArrowLeft} alt="arrow" className="back-button__icon"></img>
-                <div className="back-button__text">Вернуться к списку</div>
+        <div className={back.button} onClick={() => onButtonClicked()}>
+            <a className={back.link}>
+                <img src={ArrowLeft} alt="arrow"></img>
+                <div className={back.text}>Вернуться к списку</div>
             </a>
         </div>
     )

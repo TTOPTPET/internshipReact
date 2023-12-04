@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import './tabs.sass';
+import style from './tabs.module.css';
+import classNames from 'classnames';
 function Tabs() {
 
     const tabsData = [
@@ -14,11 +15,11 @@ function Tabs() {
     }
 
     const tabsElements = tabsData.map((item) => {
-        return <div onClick={() => changeActive(item.title)} className={activeTab === item.title ? "tabs__item tabs__item_active" : "tabs__item"}>{item.title}</div>
+        return <div onClick={() => changeActive(item.title)} className={classNames(style.item, activeTab === item.title && style.active)}>{item.title}</div>
     })
 
   return (
-    <div className="tabs">
+    <div className={style.tabs}>
         {tabsElements}
     </div>
   )
