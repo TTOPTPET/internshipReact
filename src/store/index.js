@@ -20,7 +20,7 @@ const newPostDefault = {
   link: "",
   posted: false,
   date: formattedDate,
-  discriptor: ""
+  discriptor: "",
 }
 
 const useStore = create((set, get) => ({
@@ -29,6 +29,7 @@ const useStore = create((set, get) => ({
   error: null,
   inputError: false,
   file: "",
+  url: "",
   newPost: newPostDefault,
 
   clearNewPostData() {
@@ -37,6 +38,10 @@ const useStore = create((set, get) => ({
 
   setFile(file) {
     set({file})
+  },
+
+  setUrl(url) {
+    set({url})
   },
 
   onDataChange(data) {

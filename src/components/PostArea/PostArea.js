@@ -13,12 +13,14 @@ function PostArea(props) {
 
     const {theme, title, color, description} = props.newPost
 
-    const file = useStore((state) => state.file)
+    const url = useStore((state) => state.url)
+
+    console.log(url);
 
   return (
     <div className={style.postArea}>
         <div className={style.post}>
-        {!file ? <img src={noImage} alt="camera" className={style.noImage}/> :  <img src={onion} alt="camera" className={style.image}/>}
+        {!url ? <img src={noImage} alt="camera" className={style.noImage}/> :  <img src={url} alt="camera" className={style.image}/>}
             <div className={style.header}>
                 <div className={classNames(style.time, theme === "dark" && style.dark)}>22:47</div>
                 <div className={classNames(style.icons, theme === "dark" && style.darkIcons)}>
